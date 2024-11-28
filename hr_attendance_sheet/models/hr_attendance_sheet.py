@@ -618,7 +618,7 @@ class AttendanceSheet(models.Model):
                                                          diff_clean[0]
                                         if leaves and not diff_time:
                                             status = "leave"
-                                        if leaves[0][2]:
+                                        if len(leaves) > 2:
                                             is_unpaid_leave = self.env['hr.leave.type'].search(
                                                 [('id', '=', leaves[0][2])], limit=1).unpaid_leave
                                             is_unpaid = is_unpaid_leave
